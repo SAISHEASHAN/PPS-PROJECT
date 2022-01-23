@@ -1,0 +1,61 @@
+Enter
+1-admin login
+2-user login
+2
+Enter 1-Sign up OR 2-Sign in:1
+Enter your name:sai
+Enter your last name:sai
+Enter your email/mob no.:oo
+Enter your password:099
+Enter 1-Sign up OR 2-Sign in:2
+Enter email/mob no.:oo
+Enter password:099
+Welcome sai sai
+
+ +============================+
+  Welcome to Parking Reservations System 
+  +============================+
+
+   +============================+ 
+   Vehicle type
+
+   [1] Car
+  [2] Bike
+
+   +============================+ 
+   Choose: 1
+   +============================+
+   Car Parking
+
+   lot available
+     |1|2|3|4|5|
+
+   +============================+
+   Pick a lot: 1
+   +============================+
+
+   Parking: car Parking
+   lot No : 1 Booked
+
+   +============================+ 
+   Vehicle type
+
+   [1] Car
+  [2] Bike
+
+   +============================+ 
+   Choose: 2
+   +============================+
+  Bike Parking
+
+   lot available
+    |6|7|8|9|10|
+
+   +============================+
+   Pick a lot: 6
+   +============================+
+
+   Parking: Bike Parking
+   lot No : 6 Booked
+
+   +============================+ 

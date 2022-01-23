@@ -1,0 +1,32 @@
+Enter
+1-admin login
+2-user login
+1
+Enter username:admin
+Enter Password:admin
+welcome Admin
+ 1.Enter car/jeep
+ 2.Enter bike
+ 3.check status
+ 4.clear data
+ 5.exit
+ Enter your choice: 1
+ Entry Successful
+ 1.Enter car/jeep
+ 2.Enter bike
+ 3.check status
+ 4.clear data
+ 5.exit
+ Enter your choice: 2
+ Entry Successful
+ 1.Enter car/jeep
+ 2.Enter bike
+ 3.check status
+ 4.clear data
+ 5.exit
+ Enter your choice: 3
+ Number of car/Jeep=1
+Number of bike=1
+Total Number of vehicles=2
+Total amount=150
+ 
