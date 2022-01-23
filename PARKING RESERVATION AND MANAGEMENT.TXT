@@ -1,0 +1,364 @@
+    
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void user()
+{
+int c,p;
+int i;
+int j;
+int s[10]={};
+printf("\n\n +============================+\n ");
+printf(" Welcome to Parking Reservations System ");
+printf("\n  +============================+\n\n");
+for (j=0; j<10; j++)
+{
+    printf("   +============================+ \n");
+printf("   Vehicle type\n\n   [1] Car\n  [2] Bike\n\n [3] exit\n\n)");
+printf("   +============================+ \n");
+printf("   Choose: ");
+scanf("%i",&c);
+
+switch(c)
+{
+case 1:
+    printf("   +============================+\n");
+printf("   Car Parking\n\n");
+printf("   lot available\n     |1|2|3|4|5|\n\n");
+printf("   +============================+\n");
+do
+{
+                printf("   Pick a lot: ");
+                scanf("%i",&p);
+                s[j]=p;
+             
+    for (i=0; i<j; i++)
+    {
+                    if (s[j]==s[i])
+                    {
+                        printf("\n\n   lot taken.\n\n");
+                        break;
+                    }
+    }
+            }
+            while (i!=j);
+                if(s[j] <= 5)
+                {
+                    printf("   +============================+\n");
+                    printf("\n");
+                    printf("   Parking: car Parking\n");
+                    printf("   lot No : %i Booked\n",s[j]);
+                    printf("\n");
+                }
+                else
+                printf("\nWrong number!  No lot for you!\n\n");
+            break;
+case 2:
+printf("   +============================+\n");
+printf("  Bike Parking\n\n");
+printf("   lot available\n    |6|7|8|9|10|\n\n");
+printf("   +============================+\n");
+do
+{
+                printf("   Pick a lot: ");
+                scanf("%i",&p);
+                s[j]=p;
+               
+    for (i=0; i<j; i++)
+    {
+                    if (s[j]==s[i])
+                    {
+                        printf("\n\n   lot taken.\n\n");
+                        break;
+                    }
+    }
+            }
+            while (i!=j);
+                if(s[j] >= 6)
+                {
+                    printf("   +============================+\n");
+                    printf("\n");
+                    printf("   Parking: Bike Parking\n");
+                    printf("   lot No : %i Booked\n",s[j]);
+                    printf("\n");
+                }
+                else
+                printf("\nWrong number!  No lot for you!\n\n");
+            break;
+case 3:
+exit(0);
+break;
+        }
+    }
+}
+
+void admin()
+{
+    char a[6]="admin";
+    char b[6];
+    char c[6];
+    int t=1;
+    while(t>0)
+    {
+        printf("Enter username:");
+        scanf("%s",b);
+        if(strcmp(b,a)==0)
+        {
+            while(t>0)
+            {
+                printf("Enter Password:");
+                scanf("%s",c);
+                if(strcmp(c,a)==0)
+                {
+                    printf("welcome Admin");
+                    break;
+                }
+                else
+                {
+                    printf("Wrong Password\nTry again\n");
+                }
+            }
+            break;
+        }
+        else
+        {
+            printf("Wrong username!\nTry again\n");
+        }
+    }
+}
+void sign_in_up()
+{
+    struct signup
+    {
+        char name[100];
+        char last_name[100];
+        char email_mobno[100];
+        char password[100];
+    }a[100][100];
+    struct signin
+    {
+        char email_mob_no[100];
+        char password[100];
+    }b;
+    int t=1,c,i,n=0;
+    while(t>0)
+    {
+        printf("Enter 1-Sign up OR 2-Sign in:");
+        scanf("%d",&c);
+        if(c==1)
+        {
+            for(i=n;i<100;i++)
+            {
+                printf("Enter your name:");
+                scanf("%s",a[i][100].name);
+                printf("Enter your last name:");
+                scanf("%s",a[i][100].last_name);
+                printf("Enter your email/mob no.:");
+                scanf("%s",a[i][100].email_mobno);
+                printf("Enter your password:");
+                scanf("%s",a[i][100].password);
+                n++;
+                break;
+            }
+            FILE *ufp;
+            ufp=fopen("details.txt","a");
+            if(ufp == NULL)
+            {
+            printf("File not Found");
+            }
+            else
+            {
+            fprintf(ufp,"%s %s %s %s\n",a[i][100].name,a[i][100].last_name,a[i][100].email_mobno,a[i][100].password);
+            printf("\n Record insert Sucessfull to the details file");
+            }
+            printf("\n");
+            fclose(ufp);
+            continue;
+            }
+        else if(c==2)
+        {
+            printf("Enter email/mob no.:");
+            scanf("%s",b.email_mob_no);
+            FILE *fp;
+            fp = fopen("details.txt","r");
+            if(fp == NULL)
+            {
+            printf("File not found!");
+            exit(1);
+            }
+            else
+            {
+            while( fscanf(fp,"%s %s %s %s",a[i][100].name,a[i][100].last_name,a[i][100].email_mobno,a[i][100].password)  != EOF)
+            {
+                for(i=0;i<=n;i++)
+                {
+                    if(strcmp(b.email_mob_no,a[i][100].email_mobno)==0)
+                    {
+                        while(t>0)
+                        {
+                        printf("Enter password:");
+                        scanf("%s",b.password);
+                        if(strcmp(b.password,a[i][100].password)==0)
+                        {
+                            printf("Welcome %s %s",a[i][100].name,a[i][100].last_name);
+                            break;
+                        }
+                        else
+                        {
+                            printf("You entered wrong password.\n");
+                            continue;
+                        }
+                        }   
+                        break;
+                    }
+        else
+        {
+            if(i==n)
+            {
+            printf("User does not exist.\nPLease enter valid email or mob no.");
+            printf("\nIf you are not signed up please sign up\n");
+            t=2;
+            break;
+            }
+            else 
+            {
+            continue;
+            }
+            }
+            }
+            if(t==2)
+            {
+            continue;
+            }
+            else
+            {
+            break;
+            }    
+            }
+            }
+            fclose(fp);
+            
+        }
+    user();
+    }
+}
+int noc=0,nob=0,amount=0,count=0;
+// noc/nob=number of car/bike
+
+
+
+void car()
+{
+    printf("\nEntry Successful");
+    noc++;
+    amount=amount+100;
+    count++;
+}
+
+
+
+void bike()
+{
+    printf("\nEntry Successful");
+    nob++;
+    amount=amount+50;
+    count++;
+}
+
+void status()
+{
+        printf("\nNumber of car/Jeep=%d",noc);
+    printf("\nNumber of bike=%d",nob);
+    printf("\nTotal Number of vehicles=%d",count);
+    printf("\nTotal amount=%d",amount);
+    FILE *ufp;
+    ufp=fopen("oldTransaction.txt","a");
+    if(ufp == NULL)
+    {
+        printf("File not Found");
+    }
+    else
+    {
+        fprintf(ufp,"%d %d %d %d\n",noc,nob,count,amount);
+        printf("\n Record insert Sucessfull to the old record file");
+    }
+    printf("\n");
+    fclose(ufp);
+
+}
+
+void seeold()
+{
+  FILE *fp;
+
+  
+  fp = fopen("oldTransaction.txt","r");
+  if(fp == NULL)
+  {
+    printf("File not found!");
+    exit(1);
+
+  }
+  else
+  {
+    printf("No of cars    |No of bikes   |Total vehicles|Total amount  \n");  
+    while( fscanf(fp,"%d %d %d %d",&noc,&nob,&count,&amount)  != EOF)
+    {
+        printf("%-14d|%-14d|%-14d|%-14d\n",noc,nob,count,amount);
+    }
+  }
+  fclose(fp);
+
+}
+void main()
+{
+    int a,b;
+    while(1)
+    {
+        printf("Enter\n1-admin login\n2-user login\n");
+        scanf("%d",&a);
+        switch(a)
+        {
+            case 1:
+            {
+                admin();
+                while(1)
+                {
+                    printf("\n 1.Enter car/jeep");
+                    printf("\n 2.Enter bike");
+                    printf("\n 3.check status");
+                    printf("\n 4.see old transaction");
+                    printf("\n 5.exit");
+                    printf("\n Enter your choice: ");
+                    scanf("%d",&b);
+                    switch(b)
+                    {
+                        case 1:
+                            car();
+                            break;
+                        case 2:
+                            bike();
+                            break;
+                        case 3:
+                            status();
+                            break;
+                        case 4:
+                            seeold();
+                            break;
+                        case 5:
+                            exit(0);
+                        default:
+                            printf("\n Enter correct option");
+                    }
+                }
+                break;
+            }
+            case 2:
+            {
+                sign_in_up();
+                user();
+                break;
+            }
+        }
+    }
+}
